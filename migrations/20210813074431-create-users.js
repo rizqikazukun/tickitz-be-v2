@@ -8,14 +8,25 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
+      fullname: {
+        type: Sequelize.STRING,
+      },
       email: {
         type: Sequelize.STRING,
       },
       password: {
         type: Sequelize.STRING,
       },
-      is_login: {
-        type: Sequelize.BOOLEAN,
+      phone_number: {
+        type: Sequelize.STRING,
+      },
+      otp: {
+        type: Sequelize.STRING,
+      },
+      photo: {
+        type: Sequelize.TEXT,
+        defaultValue:
+          "https://cdn3d.iconscout.com/3d/premium/thumb/boy-avatar-6299533-5187865.png",
       },
       createdAt: {
         allowNull: false,
