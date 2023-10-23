@@ -16,8 +16,6 @@ module.exports = [
   {
     path: `/:version/ticket/purchase/:id`,
     controllers: require("../controllers/Tickets").ticketPurchase,
-    validator: require("../controllers/Tickets/validator")
-      .ticketPurchaseValidator,
     method: "patch",
     cache: false,
   },

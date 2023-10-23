@@ -4,6 +4,7 @@ const transporter = require("../../utils/nodemailer");
 const model = require("../../models");
 const jwt = require("jsonwebtoken");
 const midtransClient = require("midtrans-client");
+const movie = require("../Movie/movie");
 
 let snap = new midtransClient.Snap({
   // Set to true if you want Production Environment (accept real transaction).
@@ -19,6 +20,10 @@ module.exports = {
       const { seat, startMovie, movieSlug, cinemaId } = req.body;
       const bearer = req.headers.authorization.slice(6).trim();
       const decoded = jwt.verify(bearer, process.env.APP_SECRET_KEY);
+      const findMovie = movie?.find((item) => item?.slug === movieSlug);
+
+      // filter movie
+      if (!findMovie) throw { code: 400, message: "Movie not found" };
 
       // seat cannot null
       if (seat.length === 0)
@@ -80,7 +85,7 @@ module.exports = {
         paymentMethod: null,
         paymentStatus: "pending",
         ticketStatus: "pending",
-        totalPrice: 0, // FIX IN FUTURE
+        totalPrice: (findMovie.basicPrice * cinemaId) / 2,
         seat: JSON.stringify(seat),
         version,
       });
@@ -103,7 +108,10 @@ module.exports = {
   ticketPurchase: async (req, res) => {
     try {
       const { id } = req.params;
-      const { paymentMethod } = req.body;
+
+      if (!id) throw { code: 400, message: "ID parameter cannot null" };
+      if (typeof parseInt(id) !== "number")
+        throw { code: 400, message: "ID parameter must integer" };
 
       const bearer = req.headers.authorization.slice(6).trim();
       const decoded = jwt.verify(bearer, process.env.APP_SECRET_KEY);
@@ -116,10 +124,8 @@ module.exports = {
 
       let parameter = {
         transaction_details: {
-          order_id: `tickitz-${
-            find?.dataValues?.movieSlug
-          }-${id}-${new Date().getTime()}`,
-          gross_amount: 10000, // FIX IN FUTURE
+          order_id: `tickitz-${id}-${new Date().getTime()}`,
+          gross_amount: find?.dataValues?.totalPrice, // FIX IN FUTURE
         },
         credit_card: {
           secure: true,
@@ -136,7 +142,7 @@ module.exports = {
 
       const request = await model.ticket.update(
         {
-          paymentMethod,
+          paymentMethod: "virtual account",
           paymentToken: requestPayment?.token,
         },
         {
@@ -156,7 +162,7 @@ module.exports = {
         html: mustache.render(template, {
           subject: "Proof of Payment",
           name: decoded?.fullname ?? "unknown",
-          paymentMethod,
+          paymentMethod: "virtual account",
           paymentLink: requestPayment?.redirect_url,
           ...request?.[1]?.[0]?.dataValues,
           seat: request?.[1]?.[0]?.dataValues?.seat

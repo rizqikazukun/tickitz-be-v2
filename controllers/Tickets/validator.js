@@ -4,8 +4,5 @@ module.exports = {
     movieSlug: "required|string",
     seat: "required|arrayUnique",
     startMovie: "required",
-  },
-  ticketPurchaseValidator: {
-    paymentMethod: "required|string",
-  },
+  }
 };
