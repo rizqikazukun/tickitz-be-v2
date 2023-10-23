@@ -185,4 +185,43 @@ module.exports = {
       });
     }
   },
+  paymentInfo: async (req, res) => {
+    try {
+      const { order_id, transaction_status } = req.query;
+
+      const request = await model.ticket.update(
+        {
+          paymentStatus: transaction_status,
+        },
+        {
+          where: {
+            id: order_id.split("-")[1],
+            ticketStatus:
+              transaction_status === "settlement" ||
+              transaction_status === "capture"
+                ? "ready"
+                : "pending",
+          },
+          returning: true,
+        }
+      );
+
+      if (!request) {
+        res.render("paymentFailed", { title: "Payment failed" });
+      } else {
+        if (
+          transaction_status === "settlement" ||
+          transaction_status === "capture"
+        ) {
+          res.render("paymentSuccess", { title: "Payment success" });
+        } else if (transaction_status === "pending") {
+          res.render("paymentPending", { title: "Payment pending" });
+        } else {
+          res.render("paymentFailed", { title: "Payment failed" });
+        }
+      }
+    } catch (error) {
+      res.render("paymentFailed", { title: "Payment failed" });
+    }
+  },
 };

@@ -65,4 +65,11 @@ module.exports = [
     controllers: require("../controllers/Movie").findSeatMovie,
     method: "post",
   },
+
+  // payment
+  {
+    path: `/:version/payment/info`,
+    controllers: require("../controllers/Tickets").paymentInfo,
+    method: "get",
+  },
 ];
