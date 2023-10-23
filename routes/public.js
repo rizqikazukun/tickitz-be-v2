@@ -30,4 +30,31 @@ module.exports = [
     controllers: require("../controllers/Auth").forgotVerify,
     method: "get",
   },
+
+  // movies
+  {
+    path: `${version}/movie/now-showing`,
+    controllers: require("../controllers/Movie").getNowShowing,
+    method: "get",
+  },
+  {
+    path: `${version}/movie/upcoming`,
+    controllers: require("../controllers/Movie").getUpcoming,
+    method: "get",
+  },
+  {
+    path: `${version}/movie/upcoming/:month`,
+    controllers: require("../controllers/Movie").getUpcomingMonth,
+    method: "get",
+  },
+  {
+    path: `${version}/movie/detail/:slug`,
+    controllers: require("../controllers/Movie").getSelectedMovie,
+    method: "get",
+  },
+  {
+    path: `${version}/movie/:slug/cinemas`,
+    controllers: require("../controllers/Movie").getCinemaMovie,
+    method: "get",
+  },
 ];
