@@ -1,5 +1,6 @@
 const movie = require("./movie");
 const cinemas = require("./cinemas");
+const model = require("../../models");
 
 function formatNumber(num, precision = 0) {
   const map = [
@@ -60,7 +61,7 @@ module.exports = {
         ?.filter((item) => item.isShowing && item?.slug === slug),
     });
   },
-  getCinemaMovie: async (req, res) => {
+  getCinemaMovie: (req, res) => {
     const { slug } = req.params;
     const findMovie = movie?.find((item) => item?.slug === slug);
 
@@ -83,5 +84,37 @@ module.exports = {
         price: (findMovie.basicPrice * (1 + key)) / 2,
       })),
     });
+  },
+  findSeatMovie: async (req, res) => {
+    try {
+      const { version, slug } = req.params;
+      const { startMovie, cinemaId } = req.body;
+
+      const findSeat = await model.seat.findOrCreate({
+        where: { slug, date: startMovie, cinemaId },
+        defaults: {
+          slug,
+          date: startMovie,
+          cinemaId,
+          version,
+        },
+      });
+
+      res.json({
+        status: "OK",
+        messages: "Seat choose success",
+        data: {
+          ...findSeat?.[0]?.dataValues,
+          available: JSON.parse(findSeat?.[0]?.dataValues?.available),
+          booked: JSON.parse(findSeat?.[0]?.dataValues?.booked),
+        },
+      });
+    } catch (error) {
+      res.status(error?.code ?? 500).json({
+        status: "ERROR",
+        messages: error?.message ?? "Something wrong",
+        data: null,
+      });
+    }
   },
 };

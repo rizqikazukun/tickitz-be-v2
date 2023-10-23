@@ -60,4 +60,9 @@ module.exports = [
     controllers: require("../controllers/Movie").getCinemaMovie,
     method: "get",
   },
+  {
+    path: `/:version/movie/:slug/seat`,
+    controllers: require("../controllers/Movie").findSeatMovie,
+    method: "post",
+  },
 ];
