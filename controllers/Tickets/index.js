@@ -5,6 +5,7 @@ const model = require("../../models");
 const jwt = require("jsonwebtoken");
 const midtransClient = require("midtrans-client");
 const movie = require("../Movie/movie");
+const QRCode = require("qrcode");
 
 let snap = new midtransClient.Snap({
   // Set to true if you want Production Environment (accept real transaction).
@@ -76,7 +77,7 @@ module.exports = {
       );
 
       const request = await model.ticket.create({
-        userId: decoded.id,
+        user_id: decoded.id,
         movieSlug: movieSlug,
         movieName: movieSlug.split("-").join(" "),
         cinemaId: cinemaId,
@@ -117,7 +118,7 @@ module.exports = {
       const decoded = jwt.verify(bearer, process.env.APP_SECRET_KEY);
 
       const find = await model.ticket.findOne({
-        where: { id: id, userId: decoded.id },
+        where: { id: id, user_id: decoded.id },
       });
 
       if (!find) throw { code: 404, message: "Payment not found" };
@@ -192,15 +193,15 @@ module.exports = {
       const request = await model.ticket.update(
         {
           paymentStatus: transaction_status,
+          ticketStatus:
+            transaction_status === "settlement" ||
+            transaction_status === "capture"
+              ? "ready"
+              : "pending",
         },
         {
           where: {
             id: order_id.split("-")[1],
-            ticketStatus:
-              transaction_status === "settlement" ||
-              transaction_status === "capture"
-                ? "ready"
-                : "pending",
           },
           returning: true,
         }
@@ -213,7 +214,53 @@ module.exports = {
           transaction_status === "settlement" ||
           transaction_status === "capture"
         ) {
-          res.render("paymentSuccess", { title: "Payment success" });
+          if (transaction_status === "settlement") {
+            model.ticket.belongsTo(model.users, {
+              foreignKey: {
+                name: "user_id",
+                allowNull: false,
+              },
+            });
+
+            const find = await model.ticket.findOne({
+              where: {
+                id: order_id.split("-")[1],
+              },
+              include: [
+                {
+                  model: model.users,
+                  required: true,
+                  attributes: ["fullname", "email"],
+                },
+              ],
+            });
+
+            if (!find?.dataValues?.user) {
+              res.render("paymentFailed", { title: "Payment failed" });
+            } else {
+              const template = fs.readFileSync(
+                "./views/template/ticket.html",
+                {
+                  encoding: "utf-8",
+                }
+              );
+              const mailOptions = {
+                from: "peworld08@gmail.com",
+                to: find?.dataValues?.user?.dataValues?.email,
+                subject: "Digital Ticket",
+                html: mustache.render(template, {
+                  subject: "Digital Ticket",
+                  ...find?.dataValues,
+                  url: `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${process.env.APP_URL}/v1/payment/ticket-scan/${find?.dataValues?.id}`,
+                  name: find?.dataValues?.user?.dataValues?.fullname,
+                }),
+              };
+              await transporter.sendMail(mailOptions);
+              res.render("paymentSuccess", { title: "Payment success" });
+            }
+          } else {
+            res.render("paymentSuccess", { title: "Payment success" });
+          }
         } else if (transaction_status === "pending") {
           res.render("paymentPending", { title: "Payment pending" });
         } else {
@@ -221,6 +268,7 @@ module.exports = {
         }
       }
     } catch (error) {
+      console.log(error);
       res.render("paymentFailed", { title: "Payment failed" });
     }
   },

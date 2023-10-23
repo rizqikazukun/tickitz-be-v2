@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   ticket.init(
     {
-      userId: DataTypes.INTEGER,
+      user_id: DataTypes.INTEGER,
       movieSlug: DataTypes.STRING,
       movieName: DataTypes.STRING,
       cinemaId: DataTypes.INTEGER,

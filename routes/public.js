@@ -72,4 +72,9 @@ module.exports = [
     controllers: require("../controllers/Tickets").paymentInfo,
     method: "get",
   },
+  {
+    path: `/:version/payment/ticket-scan/:id`,
+    controllers: require("../controllers/Tickets").paymentInfo,
+    method: "get",
+  },
 ];
