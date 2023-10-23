@@ -23,6 +23,10 @@ module.exports = {
       otp: {
         type: Sequelize.STRING,
       },
+      verification: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false,
+      },
       photo: {
         type: Sequelize.TEXT,
         defaultValue:

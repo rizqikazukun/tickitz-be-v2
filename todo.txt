@@ -1,0 +1,3 @@
+1. dynamic price
+3. get seat by movie
+4. deploy

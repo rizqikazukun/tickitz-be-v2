@@ -19,6 +19,7 @@ module.exports = (sequelize, DataTypes) => {
       phone_number: DataTypes.STRING,
       photo: DataTypes.STRING,
       otp: DataTypes.STRING,
+      verification: DataTypes.BOOLEAN,
       createdAt: {
         allowNull: false,
         type: DataTypes.DATE,

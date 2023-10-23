@@ -28,6 +28,11 @@ module.exports = [
     controllers: require("../controllers/Auth").forgotVerify,
     method: "get",
   },
+  {
+    path: `/:version/auth/register/verification`,
+    controllers: require("../controllers/Auth").registerVerify,
+    method: "get",
+  },
 
   // movies
   {

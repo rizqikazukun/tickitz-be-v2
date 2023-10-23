@@ -23,6 +23,9 @@ module.exports = {
 
       if (!find) throw { code: 400, message: "User not exist" };
 
+      if (!find.dataValues.verification)
+        throw { code: 400, message: "Please verification your email first, check your inbox!" };
+
       const compare = bcrypt.compareSync(password, find?.dataValues?.password);
 
       if (!compare) throw { code: 422, message: "Wrong password" };
@@ -49,24 +52,118 @@ module.exports = {
 
   register: async (req, res) => {
     try {
-      const { email, password } = req.body;
+      const { email, password, fullname, phone_number } = req.body;
       const find = await findUser(email);
 
       if (find) throw { code: 400, message: "User already registered" };
 
+      const otp = otpGenerator.generate(6, {
+        upperCaseAlphabets: false,
+        specialChars: false,
+      });
+
       const hashPassword = bcrypt.hashSync(password, bcryptSalt);
       const createUser = await model.users.create({
         email,
+        otp: otp,
         password: hashPassword,
+        fullname,
+        phone_number,
       });
 
       if (!createUser) throw { code: 500, message: "Failed insert data" };
+
+      const template = fs.readFileSync("./views/template/otp.html", {
+        encoding: "utf-8",
+      });
+
+      const ciphertext = encodeURIComponent(
+        CryptoJS.AES.encrypt(
+          JSON.stringify({ email, otp, created_at: new Date().getTime() }),
+          "ENCRYPT_TOKEN_SECRET"
+        ).toString()
+      );
+
+      const mailOptions = {
+        from: "peworld08@gmail.com",
+        to: email,
+        subject: "Verify your account",
+        html: mustache.render(template, {
+          subject: "Verify your account",
+          body: `${APP_URL}/v1/auth/register/verification?code=${ciphertext}`,
+          name: fullname,
+        }),
+      };
+      await transporter.sendMail(mailOptions);
 
       res.status(201).json({
         status: "OK",
         messages: "insert success",
         data: null,
       });
+    } catch (error) {
+      res.status(error?.code ?? 500).json({
+        status: "ERROR",
+        messages: error?.message ?? "Something wrong",
+        data: null,
+      });
+    }
+  },
+
+  registerVerify: async (req, res) => {
+    try {
+      const { code } = req.query;
+
+      const bytes = CryptoJS.AES.decrypt(
+        decodeURIComponent(code),
+        "ENCRYPT_TOKEN_SECRET"
+      );
+      const originalText = bytes.toString(CryptoJS.enc.Utf8);
+      const convertValue = JSON.parse(originalText);
+      const currentTime = new Date().getTime();
+
+      const findUser = await model.users.findOne({
+        where: {
+          email: convertValue?.email,
+          otp: convertValue?.otp,
+        },
+      });
+
+      if (!findUser) {
+        res.render("userNotFound", { title: "User not found" });
+        return;
+      }
+
+      // Periksa apakah waktu masih dalam batas 10 menit
+      if (currentTime - convertValue.created_at > 600000) {
+        await model.users.update(
+          {
+            otp: null,
+          },
+          {
+            where: {
+              id: findUser?.dataValues?.id,
+            },
+          }
+        );
+
+        res.render("tokenExpired", { title: "Token verify" });
+        return;
+      }
+
+      await model.users.update(
+        {
+          verification: true,
+          otp: null,
+        },
+        {
+          where: {
+            id: findUser?.dataValues?.id,
+          },
+        }
+      );
+
+      res.render("registerVerify", { title: "Email verify" });
     } catch (error) {
       res.status(error?.code ?? 500).json({
         status: "ERROR",
@@ -175,7 +272,7 @@ module.exports = {
       if (currentTime - convertValue.created_at > 600000) {
         await model.users.update(
           {
-            otp_forgot: null,
+            otp: null,
           },
           {
             where: {

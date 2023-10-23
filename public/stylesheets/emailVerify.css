@@ -1,0 +1,43 @@
+/* styles.css */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f0f0;
+  text-align: center;
+  padding: 50px;
+}
+
+h1 {
+  color: #0064ac;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 20px;
+  color: #333;
+  margin-top: 10px;
+}
+
+.container {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  display: inline-block;
+}
+
+/* Tambahkan CSS untuk tombol kembali */
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  background-color: #0064ac;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #00509d;
+}
