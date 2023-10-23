@@ -24,8 +24,10 @@ module.exports = (sequelize, DataTypes) => {
       startMovie: DataTypes.STRING,
       paymentMethod: DataTypes.STRING,
       paymentStatus: DataTypes.STRING,
+      paymentToken: DataTypes.STRING,
       ticketStatus: DataTypes.STRING,
       totalPrice: DataTypes.INTEGER,
+      version: DataTypes.STRING,
     },
     {
       sequelize,

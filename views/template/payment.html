@@ -386,9 +386,11 @@
                                         color: #637381;
                                       "
                                     >
-                                      Thank you for purchasing your movie
-                                      tickets through Tickitz. Here are the
-                                      details of your purchase :
+                                      Thank you for attempting to purchase movie
+                                      tickets through Tickitz. Currently, we
+                                      have found that your payment has not been
+                                      completed. Below are the details of your
+                                      booking:
                                     </div>
                                   </td>
                                 </tr>
@@ -421,6 +423,10 @@
                                         <li style="padding-bottom: 20px">
                                           <strong>Date & Time :</strong>
                                           {{startMovie}}
+                                        </li>
+                                        <li style="padding-bottom: 20px">
+                                          <strong>Payment Method :</strong>
+                                          {{paymentMethod}}
                                         </li>
                                         <li>
                                           <strong>Ticket Count :</strong>
@@ -459,35 +465,75 @@
                                         color: #637381;
                                       "
                                     >
-                                      Please keep this digital ticket safe and
-                                      do not share it. When you arrive at the
-                                      cashier, you can have it scanned, and then
-                                      enter the cinema to choose your designated
-                                      seat. Here is your barcode.
+                                      Please complete your payment to finalize
+                                      the booking process. Once the payment is
+                                      completed, you will receive your valid
+                                      digital ticket. Thank you for your
+                                      understanding.
                                     </div>
                                   </td>
                                 </tr>
                                 <tr>
                                   <td
+                                    align="center"
+                                    vertical-align="middle"
                                     style="
-                                      width: 600px;
+                                      font-size: 0px;
+                                      padding: 10px 25px;
+                                      word-break: break-word;
                                     "
                                   >
-                                    <img
-                                      alt
-                                      height="auto"
-                                      src="https://cdn.ttgtmedia.com/rms/misc/qr_code_barcode.jpg"
+                                    <table
+                                      border="0"
+                                      cellpadding="0"
+                                      cellspacing="0"
+                                      role="presentation"
                                       style="
-                                        border: 0;
-                                        display: block;
-                                        outline: none;
-                                        text-decoration: none;
-                                        font-size: 13px;
-                                        object-fit: contain;
-                                        margin: auto;
-                                        width: 200px;
+                                        border-collapse: separate;
+                                        width: 300px;
+                                        line-height: 100%;
                                       "
-                                    />
+                                    >
+                                      <tr>
+                                        <td
+                                          align="center"
+                                          bgcolor="#5e6ebf"
+                                          role="presentation"
+                                          style="
+                                            border: none;
+                                            border-radius: 3px;
+                                            cursor: auto;
+                                            mso-padding-alt: 10px 25px;
+                                            background: #5e6ebf;
+                                          "
+                                          valign="middle"
+                                        >
+                                          <a
+                                            href="{{paymentLink}}"
+                                            style="
+                                              display: inline-block;
+                                              width: 250px;
+                                              background: #5e6ebf;
+                                              color: #ffffff;
+                                              font-family: 'Helvetica Neue',
+                                                Helvetica, Arial, sans-serif;
+                                              font-size: 17px;
+                                              font-weight: bold;
+                                              line-height: 120%;
+                                              margin: 0;
+                                              text-decoration: none;
+                                              text-transform: none;
+                                              padding: 10px 25px;
+                                              mso-padding-alt: 0px;
+                                              border-radius: 3px;
+                                            "
+                                            target="_blank"
+                                          >
+                                            Pay Now
+                                          </a>
+                                        </td>
+                                      </tr>
+                                    </table>
                                   </td>
                                 </tr>
                               </tbody>

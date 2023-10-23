@@ -1,12 +1,11 @@
 module.exports = {
   seatSelectedValidator: {
-    seat: "required|integer",
+    cinemaId: "required|integer",
+    movieSlug: "required|string",
+    seat: "required|arrayUnique",
+    startMovie: "required",
   },
   ticketPurchaseValidator: {
-    movieId: "required|integer",
-    cinemaId: "required|integer",
-    totalTicket: "required|integer",
-    startMovie: "required",
     paymentMethod: "required|string",
   },
 };
