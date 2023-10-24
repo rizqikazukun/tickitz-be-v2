@@ -1,3 +1,1 @@
-1. dynamic price
-4. QR IMAGE
 5. Scaning QR IMAGE
