@@ -47,7 +47,7 @@ module.exports = {
       messages: "Get movie success",
       data: movie
         ?.map((item, key) => ({ id: 1 + key, ...item }))
-        ?.filter((item) => item.isShowing && item?.showingMonth === month),
+        ?.filter((item) => !item.isShowing && item?.showingMonth === month),
     });
   },
   getSelectedMovie: (req, res) => {
