@@ -58,7 +58,7 @@ module.exports = {
       messages: "Get movie success",
       data: movie
         ?.map((item, key) => ({ id: 1 + key, ...item }))
-        ?.filter((item) => item.isShowing && item?.slug === slug),
+        ?.filter((item) => item?.slug === slug),
     });
   },
   getCinemaMovie: (req, res) => {
