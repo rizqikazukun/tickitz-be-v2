@@ -12,7 +12,7 @@ module.exports = [
       "https://cdn0-production-images-kly.akamaized.net/zduBJnIwVqPxuvwEkK7Hpwe_WgE=/800x1066/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/2984036/original/034006400_1575278238-Jumanji_The_Next_Level_Headline.jpg",
     isShowing: false,
     showingMonth: "des",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     title: "Killers of the Flower Moon",
@@ -27,7 +27,7 @@ module.exports = [
       "https://jadwalnonton.com/data/images/movies/2023/killers-of-the-flower-moon_300x450.webp",
     isShowing: true,
     showingMonth: "des",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     title: "Dicks: The Musical",
@@ -42,7 +42,7 @@ module.exports = [
       "https://www.somervilletheatre.com/wp-content/uploads/2023/10/untitled-file-1-300x450.jpg.webp",
     isShowing: false,
     showingMonth: "des",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     title: "Expend4bles",
@@ -57,7 +57,7 @@ module.exports = [
       "https://www.themoviedb.org/t/p/w220_and_h330_face/iwsMu0ehRPbtaSxqiaUDQB9qMWT.jpg",
     isShowing: true,
     showingMonth: "oct",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     title: "Saw X",
@@ -72,7 +72,7 @@ module.exports = [
       "https://www.themoviedb.org/t/p/w220_and_h330_face/b16RAVwj2QN6RAs752UJNzQ9Of0.jpg",
     isShowing: false,
     showingMonth: "des",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     title: "TAYLOR SWIFT | THE ERAS TOUR",
@@ -87,7 +87,7 @@ module.exports = [
       "https://www.themoviedb.org/t/p/w220_and_h330_face/a5EreVlyB9fXzZ2Rf9ugOLrW5YI.jpg",
     isShowing: false,
     showingMonth: "des",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     title: "Jeanne du Barry (2023)",
@@ -102,7 +102,7 @@ module.exports = [
       "https://www.themoviedb.org/t/p/w220_and_h330_face/6AXHh9H7XeUqxl8Ijp9ADkpxfM0.jpg",
     isShowing: true,
     showingMonth: "des",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     title: "Five Nights at Freddy's",
@@ -117,7 +117,7 @@ module.exports = [
       "https://www.themoviedb.org/t/p/w220_and_h330_face/A4j8S6moJS2zNtRR8oWF08gRnL5.jpg",
     isShowing: false,
     showingMonth: "sep",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster: "https://image.tmdb.org/t/p/w185/nJ7WbBu6oSxbXls06zWLRdfrYyW.jpg",
@@ -131,7 +131,7 @@ module.exports = [
     genres: ["horror", "thriller"],
     isShowing: false,
     showingMonth: "jan",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -146,7 +146,7 @@ module.exports = [
     genres: ["horror", "thriller"],
     isShowing: false,
     showingMonth: "jan",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -161,7 +161,7 @@ module.exports = [
     genres: ["horror"],
     isShowing: false,
     showingMonth: "jan",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -176,7 +176,7 @@ module.exports = [
     genres: ["horror"],
     isShowing: false,
     showingMonth: "jan",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -191,7 +191,7 @@ module.exports = [
     genres: ["horror"],
     isShowing: false,
     showingMonth: "jan",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -206,7 +206,7 @@ module.exports = [
     genres: ["drama"],
     isShowing: false,
     showingMonth: "feb",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -221,7 +221,7 @@ module.exports = [
     genres: ["action", "crime", "drama"],
     isShowing: false,
     showingMonth: "feb",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -236,7 +236,7 @@ module.exports = [
     genres: ["horror"],
     isShowing: false,
     showingMonth: "feb",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -251,7 +251,7 @@ module.exports = [
     genres: ["horror", "mystery", "thriller"],
     isShowing: false,
     showingMonth: "feb",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -266,7 +266,7 @@ module.exports = [
     genres: ["drama", "romance"],
     isShowing: false,
     showingMonth: "feb",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -281,7 +281,7 @@ module.exports = [
     genres: ["action", "comedy", "drama"],
     isShowing: false,
     showingMonth: "mar",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -296,7 +296,7 @@ module.exports = [
     genres: ["drama", "thriller"],
     isShowing: false,
     showingMonth: "mar",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -311,7 +311,7 @@ module.exports = [
     genres: ["comedy", "horror"],
     isShowing: false,
     showingMonth: "mar",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -326,7 +326,7 @@ module.exports = [
     genres: ["horror", "mystery"],
     isShowing: false,
     showingMonth: "mar",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -341,7 +341,7 @@ module.exports = [
     genres: ["horror", "mystery", "thriller"],
     isShowing: false,
     showingMonth: "mar",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -356,7 +356,7 @@ module.exports = [
     genres: ["drama", "family"],
     isShowing: false,
     showingMonth: "apr",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -371,7 +371,7 @@ module.exports = [
     genres: ["drama", "horror", "thriller"],
     isShowing: false,
     showingMonth: "apr",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -386,7 +386,7 @@ module.exports = [
     genres: ["biography", "drama", "history"],
     isShowing: false,
     showingMonth: "apr",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -401,7 +401,7 @@ module.exports = [
     genres: ["horror"],
     isShowing: false,
     showingMonth: "apr",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -416,7 +416,7 @@ module.exports = [
     genres: ["horror", "thriller"],
     isShowing: false,
     showingMonth: "apr",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -431,7 +431,7 @@ module.exports = [
     genres: ["horror"],
     isShowing: false,
     showingMonth: "may",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -446,7 +446,7 @@ module.exports = [
     genres: ["drama"],
     isShowing: false,
     showingMonth: "may",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -461,7 +461,7 @@ module.exports = [
     genres: ["comedy", "drama"],
     isShowing: false,
     showingMonth: "may",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -476,7 +476,7 @@ module.exports = [
     genres: ["drama"],
     isShowing: false,
     showingMonth: "may",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -491,7 +491,7 @@ module.exports = [
     genres: ["horror"],
     isShowing: false,
     showingMonth: "may",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -506,7 +506,7 @@ module.exports = [
     genres: ["comedy", "drama"],
     isShowing: false,
     showingMonth: "june",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -521,7 +521,7 @@ module.exports = [
     genres: ["horror"],
     isShowing: false,
     showingMonth: "june",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -536,7 +536,7 @@ module.exports = [
     genres: ["horror"],
     isShowing: false,
     showingMonth: "june",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -551,7 +551,7 @@ module.exports = [
     genres: ["comedy", "drama", "music"],
     isShowing: false,
     showingMonth: "june",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -566,7 +566,7 @@ module.exports = [
     genres: ["drama", "horror"],
     isShowing: false,
     showingMonth: "june",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -581,7 +581,7 @@ module.exports = [
     genres: ["drama"],
     isShowing: false,
     showingMonth: "july",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -596,7 +596,7 @@ module.exports = [
     genres: ["horror"],
     isShowing: false,
     showingMonth: "july",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -611,7 +611,7 @@ module.exports = [
     genres: ["adventure", "drama"],
     isShowing: false,
     showingMonth: "july",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -626,7 +626,7 @@ module.exports = [
     genres: ["mystery"],
     isShowing: false,
     showingMonth: "july",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -641,7 +641,7 @@ module.exports = [
     genres: ["horror"],
     isShowing: false,
     showingMonth: "july",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -656,7 +656,7 @@ module.exports = [
     genres: ["drama", "fantasy", "horror"],
     isShowing: false,
     showingMonth: "aug",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -671,7 +671,7 @@ module.exports = [
     genres: ["drama", "horror"],
     isShowing: false,
     showingMonth: "aug",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -686,7 +686,7 @@ module.exports = [
     genres: ["drama", "romance"],
     isShowing: false,
     showingMonth: "aug",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -701,7 +701,7 @@ module.exports = [
     genres: ["horror", "thriller"],
     isShowing: false,
     showingMonth: "aug",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -716,7 +716,7 @@ module.exports = [
     genres: ["drama", "romance"],
     isShowing: false,
     showingMonth: "aug",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -731,7 +731,7 @@ module.exports = [
     genres: ["drama"],
     isShowing: false,
     showingMonth: "september",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -746,7 +746,7 @@ module.exports = [
     genres: ["drama", "thriller"],
     isShowing: false,
     showingMonth: "september",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -761,7 +761,7 @@ module.exports = [
     genres: ["drama"],
     isShowing: false,
     showingMonth: "september",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -776,7 +776,7 @@ module.exports = [
     genres: ["comedy", "drama"],
     isShowing: false,
     showingMonth: "september",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -791,7 +791,7 @@ module.exports = [
     genres: ["horror"],
     isShowing: false,
     showingMonth: "sep",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -806,7 +806,7 @@ module.exports = [
     genres: ["horror", "mystery"],
     isShowing: false,
     showingMonth: "oct",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -821,7 +821,7 @@ module.exports = [
     genres: ["horror", "thriller"],
     isShowing: false,
     showingMonth: "oct",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -836,7 +836,7 @@ module.exports = [
     genres: ["comedy", "drama", "romance"],
     isShowing: false,
     showingMonth: "oct",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -851,7 +851,7 @@ module.exports = [
     genres: ["adventure", "horror", "Sci-Fi"],
     isShowing: false,
     showingMonth: "oct",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -866,7 +866,7 @@ module.exports = [
     genres: ["comedy", "drama", "family"],
     isShowing: false,
     showingMonth: "oct",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -881,7 +881,7 @@ module.exports = [
     genres: ["drama", "romance"],
     isShowing: true,
     showingMonth: "nov",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -896,7 +896,7 @@ module.exports = [
     genres: ["horror"],
     isShowing: false,
     showingMonth: "nov",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -911,7 +911,7 @@ module.exports = [
     genres: ["horror", "thriller"],
     isShowing: false,
     showingMonth: "nov",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -926,7 +926,7 @@ module.exports = [
     genres: ["comedy", "drama"],
     isShowing: false,
     showingMonth: "nov",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -956,7 +956,7 @@ module.exports = [
     genres: ["horror", "thriller"],
     isShowing: false,
     showingMonth: "sep",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -971,7 +971,7 @@ module.exports = [
     genres: ["horror"],
     isShowing: false,
     showingMonth: "sep",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -986,7 +986,7 @@ module.exports = [
     genres: ["horror"],
     isShowing: false,
     showingMonth: "sep",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -1001,7 +1001,7 @@ module.exports = [
     genres: ["horror"],
     isShowing: false,
     showingMonth: "sep",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
   {
     poster:
@@ -1016,6 +1016,6 @@ module.exports = [
     genres: ["drama"],
     isShowing: true,
     showingMonth: "sep",
-    basicPrice: 800000,
+    basicPrice: 80000,
   },
 ];
