@@ -4,8 +4,15 @@ const transporter = require("../../utils/nodemailer");
 const model = require("../../models");
 const jwt = require("jsonwebtoken");
 const midtransClient = require("midtrans-client");
+
 const movie = require("../Movie/movie");
-const QRCode = require("qrcode");
+const movie_arsyad = require("./movie_arsyad");
+const movie_aulia = require("./movie_aulia");
+const movie_gusti = require("./movie_gusti");
+const movie_rayhan = require("./movie_rayhan");
+const movie_rizqi = require("./movie_rizqi");
+const movie_yaqin = require("./movie_yaqin");
+const movie_yongki = require("./movie_yongki");
 
 let snap = new midtransClient.Snap({
   // Set to true if you want Production Environment (accept real transaction).
@@ -14,6 +21,46 @@ let snap = new midtransClient.Snap({
   clientKey: process.env.CLIENT_KEY,
 });
 
+function getMovieList(version) {
+  let usedMovie;
+
+  switch (version) {
+    case "arsyad":
+      usedMovie = movie_arsyad;
+      break;
+
+    case "aulia":
+      usedMovie = movie_aulia;
+      break;
+
+    case "gusti":
+      usedMovie = movie_gusti;
+      break;
+
+    case "rayhan":
+      usedMovie = movie_rayhan;
+      break;
+
+    case "rizqi":
+      usedMovie = movie_rizqi;
+      break;
+
+    case "yaqin":
+      usedMovie = movie_yaqin;
+      break;
+
+    case "yongki":
+      usedMovie = movie_yongki;
+      break;
+
+    default:
+      usedMovie = movie;
+      break;
+  }
+
+  return usedMovie;
+}
+
 module.exports = {
   seatSelected: async (req, res) => {
     try {
@@ -21,7 +68,9 @@ module.exports = {
       const { seat, startMovie, movieSlug, cinemaId } = req.body;
       const bearer = req.headers.authorization.slice(6).trim();
       const decoded = jwt.verify(bearer, process.env.APP_SECRET_KEY);
-      const findMovie = movie?.find((item) => item?.slug === movieSlug);
+      const findMovie = getMovieList(req.params.version)?.find(
+        (item) => item?.slug === movieSlug
+      );
 
       // filter movie
       if (!findMovie) throw { code: 400, message: "Movie not found" };
