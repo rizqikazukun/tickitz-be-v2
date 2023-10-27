@@ -100,13 +100,15 @@ module.exports = {
   },
   getSelectedMovie: (req, res) => {
     const { slug } = req.params;
+    const filteredMovie = getMovieList(req.params.version)
+      ?.map((item, key) => ({ id: 1 + key, ...item }))
+      ?.filter((item) => item?.slug === slug);
+    const checkIsValid = filteredMovie?.length ? true : false;
 
-    res.json({
+    res.status(checkIsValid ? 200 : 404).json({
       status: "OK",
       messages: "Get movie success",
-      data: getMovieList(req.params.version)
-        ?.map((item, key) => ({ id: 1 + key, ...item }))
-        ?.filter((item) => item?.slug === slug),
+      data: filteredMovie,
     });
   },
   getCinemaMovie: (req, res) => {
