@@ -6,13 +6,13 @@ const jwt = require("jsonwebtoken");
 const midtransClient = require("midtrans-client");
 
 const movie = require("../Movie/movie");
-const movie_arsyad = require("./movie_arsyad");
-const movie_aulia = require("./movie_aulia");
-const movie_gusti = require("./movie_gusti");
-const movie_rayhan = require("./movie_rayhan");
-const movie_rizqi = require("./movie_rizqi");
-const movie_yaqin = require("./movie_yaqin");
-const movie_yongki = require("./movie_yongki");
+const movie_arsyad = require("../Movie/movie_arsyad");
+const movie_aulia = require("../Movie/movie_aulia");
+const movie_gusti = require("../Movie/movie_gusti");
+const movie_rayhan = require("../Movie/movie_rayhan");
+const movie_rizqi = require("../Movie/movie_rizqi");
+const movie_yaqin = require("../Movie/movie_yaqin");
+const movie_yongki = require("../Movie/movie_yongki");
 
 let snap = new midtransClient.Snap({
   // Set to true if you want Production Environment (accept real transaction).
