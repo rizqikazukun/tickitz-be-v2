@@ -85,7 +85,7 @@ module.exports = {
       );
 
       const mailOptions = {
-        from: "peworld08@gmail.com",
+        from: process.env.SMTP_GMAIL,
         to: email,
         subject: "Verify your account",
         html: mustache.render(template, {
@@ -221,7 +221,7 @@ module.exports = {
       );
 
       const mailOptions = {
-        from: "peworld08@gmail.com",
+        from: process.env.SMTP_GMAIL,
         to: email,
         subject: "Request Reset Password",
         html: mustache.render(template, {
@@ -316,7 +316,7 @@ module.exports = {
       });
 
       const mailOptions = {
-        from: "peworld08@gmail.com",
+        from: process.env.SMTP_GMAIL,
         to: convertValue?.email,
         subject: "Reset Password Success",
         html: mustache.render(template, {
@@ -346,7 +346,7 @@ module.exports = {
       });
 
       const mailOptions = {
-        from: "peworld08@gmail.com",
+        from: process.env.SMTP_GMAIL,
         to: email,
         subject: "Thanks for subscribing",
         html: mustache.render(template, {

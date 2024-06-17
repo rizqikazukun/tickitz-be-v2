@@ -206,7 +206,7 @@ module.exports = {
         encoding: "utf-8",
       });
       const mailOptions = {
-        from: "peworld08@gmail.com",
+        from: process.env.SMTP_GMAIL,
         to: decoded?.email,
         subject: "Proof of Payment",
         html: mustache.render(template, {
@@ -294,7 +294,7 @@ module.exports = {
                 }
               );
               const mailOptions = {
-                from: "peworld08@gmail.com",
+                from: process.env.SMTP_GMAIL,
                 to: find?.dataValues?.user?.dataValues?.email,
                 subject: "Digital Ticket",
                 html: mustache.render(template, {
