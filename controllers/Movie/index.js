@@ -142,23 +142,34 @@ module.exports = {
       const { version, slug } = req.params;
       const { startMovie, cinemaId } = req.body;
 
-      const findSeat = await model.seat.findOrCreate({
+      const findSeat = await model.seat.findAll({
         where: { slug, date: startMovie, cinemaId },
-        defaults: {
+      });
+
+      let theSeat
+
+      if (findSeat.length === 0) {
+        theSeat = await model.seat.create({
           slug,
           date: startMovie,
           cinemaId,
           version,
-        },
-      });
+        });
 
-      res.json({
+        theSeat = await model.seat.findAll({
+          where: { slug, date: startMovie, cinemaId },
+        });
+      } else {
+        theSeat = findSeat
+      }
+
+      await res.json({
         status: "OK",
         messages: "Seat choose success",
         data: {
           ...findSeat?.[0]?.dataValues,
-          available: JSON.parse(findSeat?.[0]?.dataValues?.available),
-          booked: JSON.parse(findSeat?.[0]?.dataValues?.booked),
+          available: JSON.parse(theSeat?.[0]?.dataValues?.available),
+          booked: JSON.parse(theSeat?.[0]?.dataValues?.booked),
         },
       });
     } catch (error) {
