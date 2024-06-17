@@ -5,21 +5,18 @@ const path = require("path");
 const Sequelize = require("sequelize");
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || "development";
-const config = require(__dirname + "/../config/config.js")[env];
+const config = require('../config/config')[env];
 const db = {};
 
-let sequelize;
-if (config.use_env_variable) {
-  sequelize = new Sequelize(process.env[config.use_env_variable], {
-    ...config,
-    timezone: "Asia/Jakarta",
-  });
-} else {
-  sequelize = new Sequelize(config.database, config.username, config.password, {
-    ...config,
-    timezone: "Asia/Jakarta",
-  });
-}
+const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASS, {
+  username: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_NAME,
+  host: process.env.DB_HOST,
+  dialect: "postgres",
+  port: process.env.DB_PORT,
+  timezone: "Asia/Jakarta",
+});
 
 fs.readdirSync(__dirname)
   .filter((file) => {
